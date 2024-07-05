@@ -1,19 +1,25 @@
 #include <stdio.h>
 
-int count_digits(char st[20])
-{
- int i;
 
+void main()
+{
+
+    printf("%d ", count_digits("Abc123"));
+    printf("%d ", count_digits("Xyz"));
 
 }
 
 
-void main()
+int count_digits(char st[20])
 {
-    char name[20];
+ int i, count = 0;
 
 
-    printf("%d ", count_digits("Abc123"));
-    printf("%d ", count_digits(name));
+     for(i = 0; st[i] != '\0'; i ++)
+     {
+        if (isdigit(st[i]))
+             count ++;
+     }
 
+     return count;
 }
