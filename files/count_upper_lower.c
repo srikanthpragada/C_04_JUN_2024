@@ -1,4 +1,4 @@
-// Take filename and display its contents
+// Take filename and count upper and lower letters
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,6 +9,7 @@ void main()
   FILE * fp;
   char filename[30];
   char ch;
+  int upper = 0, lower = 0;
 
 
       printf("Enter filename :");
@@ -25,8 +26,19 @@ void main()
 
       while(1)
       {
+          ch = fgetc(fp);
+          if (ch == EOF)  // end of file
+             break;
+
+          if(isupper(ch))
+               upper ++;
+          else
+             if(islower(ch))
+                lower ++;
 
       }
 
       fclose(fp);
+
+      printf("Upper count = %d, Lower Count = %d", upper, lower);
 }

@@ -1,21 +1,18 @@
-// Take filename and display its contents
+// Write 50 marks into marks.dat
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
+#define FILENAME  "marks.dat"
+
 void main()
 {
   FILE * fp;
-  char filename[30];
-  char ch;
+  int marks, i;
 
 
-      printf("Enter filename :");
-      gets(filename);
-
-
-      fp = fopen(filename, "rt");
+      fp = fopen(FILENAME, "wb");
       if(fp == NULL)   // file not found
       {
           printf("Sorry! File cannot be opened!");
@@ -23,9 +20,11 @@ void main()
       }
 
 
-      while(1)
+      srand(time(0));
+      for(i = 1; i <= 50; i ++)
       {
-
+          marks = rand() % 100;
+          fwrite(&marks,sizeof(marks),1, fp);
       }
 
       fclose(fp);

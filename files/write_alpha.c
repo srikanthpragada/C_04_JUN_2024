@@ -1,4 +1,4 @@
-// Take filename and display its contents
+// Take  alphabets into alpha.txt
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,15 +7,10 @@
 void main()
 {
   FILE * fp;
-  char filename[30];
   char ch;
 
 
-      printf("Enter filename :");
-      gets(filename);
-
-
-      fp = fopen(filename, "rt");
+      fp = fopen("alpha.txt", "wt");
       if(fp == NULL)   // file not found
       {
           printf("Sorry! File cannot be opened!");
@@ -23,10 +18,11 @@ void main()
       }
 
 
-      while(1)
-      {
+      for(ch = 65; ch <= 90; ch ++)
+           fputc(ch,fp);
 
-      }
+      for(ch = 97; ch <= 122; ch ++)
+           fputc(ch,fp);
 
       fclose(fp);
 }
